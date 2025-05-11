@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감정 기반 타로 리딩</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fdf6f9;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        button {
+            background-color: #b486cf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #9b6db3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💓 감정 기반 타로 리딩</h2>
+        <p>당신의 현재 감정 흐름을 타로카드로 살펴보세요</p>
+        <button onclick="drawEmotionCards()">카드 뽑기</button>
+        <div id="emotionResult" class="result"></div>
+    </div>
+
+    <script>
+        const emotionCards = [
+            "🌞 태양 - 기쁨과 자신감이 중심에 있습니다.",
+            "🌧️ 달 - 감정이 흐릿하고 혼란스러워요.",
+            "⚡ 타워 - 충격적인 사건이 감정을 흔들고 있어요.",
+            "💧 컵5 - 상실감이 지금의 감정을 지배합니다.",
+            "💗 연인 - 누군가와의 감정 연결이 중심이에요.",
+            "🧙‍♀️ 여사제 - 감정을 스스로도 잘 모르겠어요.",
+            "🔥 완드10 - 감정적으로 너무 무거워요.",
+            "🌿 별 - 희망이 서서히 자리잡고 있어요."
+        ];
+
+        function drawEmotionCards() {
+            let picked = [];
+            while (picked.length < 3) {
+                const card = emotionCards[Math.floor(Math.random() * emotionCards.length)];
+                if (!picked.includes(card)) picked.push(card);
+            }
+            document.getElementById("emotionResult").innerHTML = `
+                <p>💡 현재 감정 중심: ${picked[0]}</p>
+                <p>🔍 감정의 배경: ${picked[1]}</p>
+                <p>🔮 감정의 흐름: ${picked[2]}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
